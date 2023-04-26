@@ -1,0 +1,24 @@
+.calendar-table{
+    border-collapse: collapse;
+}
+
+.day-text {
+    padding: 5px;
+    position: absolute;
+}
+
+td {
+    color: white;
+    border-right: 1px solid aqua;
+    border-bottom: 1px solid aqua;
+    vertical-align: text-top;
+    height: 120px;
+    width: 120px;
+}
+
+td:hover {
+    background: rgba(0, 255, 255, 0.7);
+    transition: linear 100ms;
+}
+
+

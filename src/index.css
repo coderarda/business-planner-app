@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+
+:root {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+	background: rgba(35, 35, 35, 1);
+    color-scheme: light dark;
+    color: white;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    margin: 0;
+    display: block;
+    width: 100vw;
+    min-height: auto;
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        color: #213547;
+    }
+    button {
+        background-color: #f9f9f9;
+    }
+}
