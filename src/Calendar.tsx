@@ -1,6 +1,7 @@
-import React, { ReactElement } from "react";
+import React, { ReactElement, useState } from "react";
 import "./Calendar.css";
 import { CalendarEvent } from "../../business-planner-shared/src/CalendarEvent";
+import Axios from "axios";
 
 interface MonthUIElements {
 	days: Array<ReactElement[]>,
@@ -14,6 +15,8 @@ interface DayProps {
 }
 
 function Day(props: DayProps) {
+	const [events, setEvents] = useState(new Array<CalendarEvent>);
+	Axios.get("localhost:5000").then((res) => console.log(res)).catch((err) => console.log(err));
 	return (
 		<td key={props.key}>
 			<span className="day-text">{props.dayIndex.toString()}</span>
