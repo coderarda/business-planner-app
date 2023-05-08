@@ -1,7 +1,7 @@
-import React, { ReactElement, useState } from "react";
+import React, { ReactElement, useEffect, useState } from "react";
 import "./Calendar.css";
 import { CalendarEvent } from "../../business-planner-shared/src/CalendarEvent";
-import Axios from "axios";
+import axios from "axios";
 
 interface MonthUIElements {
 	days: Array<ReactElement[]>,
@@ -10,36 +10,46 @@ interface MonthUIElements {
 
 interface DayProps {
 	dayIndex: number;
-	events: Array<CalendarEvent>;
-	key?: number;
+	key: number;
 }
+
 
 function Day(props: DayProps) {
 	const [events, setEvents] = useState(new Array<CalendarEvent>);
-	Axios.get("localhost:5000").then((res) => console.log(res)).catch((err) => console.log(err));
+	
+	useEffect(() => {
+		const fetchData = async () => {
+			const res = await axios.get("http://localhost:3000");
+			const data: CalendarEvent = res.data;
+			if(new Date(data.date).getDate() == props.dayIndex && !events.includes(data))
+				setEvents([...events, data]);
+		};
+		fetchData();
+	}, []);
 	return (
 		<td key={props.key}>
 			<span className="day-text">{props.dayIndex.toString()}</span>
-			{props.events.map((el) => <span key={el.id}>{el.title}</span>)}
+			{events.map((el) => <span key={el.id}>{el.title}</span>)}
 		</td>
 	);
 }
+
 
 function renderDays(): MonthUIElements {
 	const weeks: ReactElement[] = [];
 	const days: Array<ReactElement<DayProps>[]> = [];
 	const date = new Date();
-	const month = new MonthData(date, date.getMonth());
+	const staticDate = new Date(date.getFullYear(), date.getUTCMonth(), 0);
 	let a = 1;
-	let tmp = month.dayCount;
-	for (let i = 0; i <= tmp + 1; i++) {
+	let tmp = staticDate.getDate();
+	while (tmp > 0) {
 		const arr = [];
 		for (let j = a; j < a + 7; j++) {
-			if (j <= month.dayCount) {
+			if (j <= staticDate.getDate()) {
 				arr.push(
 					Day({
 						dayIndex: j,
-						events: new Array<CalendarEvent>,
+						key: j,
 					})
 				);
 			}
@@ -63,54 +73,24 @@ function renderDays(): MonthUIElements {
 	}
 }
 
-class MonthData {
-	private _dayCount: number;
-	private _monthNum: number;
-	constructor(dateObj: Date, currMonth: number) {
-		this._monthNum = currMonth;
-		if (this._monthNum == 2) {
-			if (
-				dateObj.getFullYear() % 4 == 0 &&
-				dateObj.getFullYear() % 400 == 0 &&
-				dateObj.getFullYear() % 100 != 0
-			) {
-				this._dayCount = 29;
-			} else this._dayCount = 28;
-		} else if (this._monthNum % 2 == 0 && this._monthNum != 2) {
-			this._dayCount = 30;
-		} else this._dayCount = 31;
-	}
-	
-	public get dayCount() : number {
-		return this._dayCount;
-	}
-}
-
 function CalendarUI() {
 	const days = renderDays();
 	return (
-		<div>
+		<>
 			{days.weeks.map((el) => {
 				return el;
 			})}
-		</div>
+		</>
 	)
 }
 
 export default function Calendar() {
 	return (
-		<div className="root-calendar">
-			<table cellSpacing={0} cellPadding={0} className="calendar-table">
-				<tbody>
-					<CalendarUI />	
-				</tbody>
-			</table>
-		</div>
+		<table cellSpacing={0} cellPadding={0} className="calendar-table">
+			<tbody>
+				<CalendarUI />
+			</tbody>
+		</table>
 	);
-}
-
-
-function addEvent(date: Date, index: number): CalendarEvent {
-	return new CalendarEvent(date, "default", "desc", index);
 }
 
