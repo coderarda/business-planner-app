@@ -1,0 +1,17 @@
+.popup-list {
+    list-style-type: none;
+    padding: 20px;
+}
+
+.popup-list-item {
+    border-radius: 5px;
+    background: rgb(75, 75, 75);
+    width: auto;
+    padding: 10px;
+}
+
+.check-box-round {
+    border-radius: 100%;
+    border: 1px solid black;
+}
+

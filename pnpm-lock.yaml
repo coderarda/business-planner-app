@@ -34,6 +34,9 @@ dependencies:
   react-router-dom:
     specifier: ^6.4.3
     version: 6.10.0(react-dom@18.2.0)(react@18.2.0)
+  reactjs-popup:
+    specifier: ^2.0.5
+    version: 2.0.5(react-dom@18.2.0)(react@18.2.0)
   sequelize:
     specifier: ^6.29.3
     version: 6.31.0(mysql2@3.2.4)
@@ -2571,6 +2574,17 @@ packages:
     engines: {node: '>=0.10.0'}
     dependencies:
       loose-envify: 1.4.0
+    dev: false
+
+  /reactjs-popup@2.0.5(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-b5hv9a6aGsHEHXFAgPO5s1Jw1eSkopueyUVxQewGdLgqk2eW0IVXZrPRpHR629YcgIpC2oxtX8OOZ8a7bQJbxA==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      react: '>=16'
+      react-dom: '>=16'
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
     dev: false
 
   /regexp.prototype.flags@1.5.0:

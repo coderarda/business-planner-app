@@ -1,7 +1,9 @@
-import React, { ReactElement, useEffect, useState } from "react";
+import React, { MouseEventHandler, ReactElement, Ref, useEffect, useRef, useState } from "react";
 import "./Calendar.css";
 import { CalendarEvent } from "../../business-planner-shared/src/CalendarEvent";
 import axios from "axios";
+import EventPopup from "./EventPopup";
+import { PopupActions } from "reactjs-popup/dist/types";
 
 interface MonthUIElements {
 	days: Array<ReactElement[]>,
@@ -9,14 +11,14 @@ interface MonthUIElements {
 }
 
 interface DayProps {
-	dayIndex: number;
-	key: number;
+	dayIndex: number,
+	key: number,
 }
 
 
 function Day(props: DayProps) {
 	const [events, setEvents] = useState(new Array<CalendarEvent>);
-	
+	const [isOpen, setIsOpen] = useState(false);
 	useEffect(() => {
 		const fetchData = async () => {
 			const res = await axios.get("http://localhost:3000");
@@ -27,8 +29,9 @@ function Day(props: DayProps) {
 		fetchData();
 	}, []);
 	return (
-		<td key={props.key}>
+		<td key={props.key} onClick={() => setIsOpen(true)}>
 			<span className="day-text">{props.dayIndex.toString()}</span>
+			<EventPopup events={events} open={isOpen}/>
 			{events.map((el) => <span key={el.id}>{el.title}</span>)}
 		</td>
 	);
