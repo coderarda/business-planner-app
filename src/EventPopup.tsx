@@ -1,9 +1,9 @@
-import React, { Ref } from "react";
+import React, { useState } from "react";
 import { Popup } from "reactjs-popup";
 import "reactjs-popup/dist/index.css";
 import { CalendarEvent } from "../../business-planner-shared/src/CalendarEvent";
-import { PopupActions } from "reactjs-popup/dist/types";
 import "./EventPopup.css";
+import Checkbox from "./Checkbox";
 
 interface EventPopupProps {
     events: CalendarEvent[],
@@ -19,14 +19,7 @@ export default function EventPopup(props: EventPopupProps) {
                 {props.events.map((ev) => {
                     return (
                         <li className="popup-list-item">
-                            <div className="round">
-                                <input style={{
-                                    height: "18px",
-                                    width: "18px",
-                                }} type="checkbox" id="checkbox" />
-                                <label htmlFor="checkbox"></label>
-                            {ev.title}
-                            </div>     
+                            <Checkbox label={ev.title} />
                         </li>
                     );
                 })}

@@ -10,44 +10,13 @@
     padding: 10px;
 }
 
-.round {
-    position: relative;
-    padding: 4px;
-}
-
-.round label {
-    border: 1px solid #ccc;
-    border-radius: 50%;
-    cursor: pointer;
-    height: 14px;
-    left: 0;
-    position: absolute;
-    width: 14px;
-}
-
-.round label:after {
-    border: 1px solid #fff;
-    border-top: none;
-    border-right: none;
-    content: "";
-    height: 3px;
-    opacity: 0;
-    left: 3px;
-    top: 4px;
-    position: absolute;
-    transform: rotate(-45deg);
-    width: 6px;
-}
-
 .round input[type="checkbox"] {
-    visibility: hidden;
+    border: 1px solid aqua;
+    cursor: pointer;
+    border-radius: 50%;
+    background: white;
 }
 
-.round input[type="checkbox"]:checked + label {
-    background-color: #66bb6a;
-    border-color: #66bb6a;
-}
-
-.round input[type="checkbox"]:checked + label:after {
-    opacity: 1;
+.round input[type="checkbox"]:checked {
+    color: aqua;
 }
