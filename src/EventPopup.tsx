@@ -19,8 +19,14 @@ export default function EventPopup(props: EventPopupProps) {
                 {props.events.map((ev) => {
                     return (
                         <li className="popup-list-item">
-                            <input type="checkbox" className="check-box-round"/>
-                            {" " + ev.title}
+                            <div className="round">
+                                <input style={{
+                                    height: "18px",
+                                    width: "18px",
+                                }} type="checkbox" id="checkbox" />
+                                <label htmlFor="checkbox"></label>
+                            {ev.title}
+                            </div>     
                         </li>
                     );
                 })}
