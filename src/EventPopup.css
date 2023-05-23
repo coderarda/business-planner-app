@@ -9,14 +9,3 @@
     width: auto;
     padding: 10px;
 }
-
-.round input[type="checkbox"] {
-    border: 1px solid aqua;
-    cursor: pointer;
-    border-radius: 50%;
-    background: white;
-}
-
-.round input[type="checkbox"]:checked {
-    color: aqua;
-}
