@@ -1,9 +1,8 @@
-import React, { MouseEventHandler, ReactElement, Ref, useEffect, useRef, useState } from "react";
+import React, { ReactElement, useEffect, useState } from "react";
 import "./Calendar.css";
 import { CalendarEvent } from "../../business-planner-shared/src/CalendarEvent";
 import axios from "axios";
 import EventPopup from "./EventPopup";
-import { PopupActions } from "reactjs-popup/dist/types";
 
 interface MonthUIElements {
 	days: Array<ReactElement[]>,
@@ -77,10 +76,10 @@ function renderDays(): MonthUIElements {
 }
 
 function CalendarUI() {
-	const days = renderDays();
+	const dayData = renderDays();
 	return (
 		<>
-			{days.weeks.map((el) => {
+			{dayData.weeks.map((el) => {
 				return el;
 			})}
 		</>
