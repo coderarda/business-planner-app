@@ -2,7 +2,7 @@ import React, { ReactElement, useEffect, useState } from "react";
 import "./Calendar.css";
 import { CalendarEvent } from "../../business-planner-shared/src/CalendarEvent";
 import axios from "axios";
-import EventPopup from "./EventPopup";
+import EventPopup from "./components/EventPopup";
 
 interface MonthUIElements {
 	days: Array<ReactElement[]>,

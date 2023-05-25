@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./Home.css";
 import { Axios } from "axios";
 import { CalendarEvent } from "../../business-planner-shared/src/CalendarEvent";
-import EventListItem from "./EventListItem";
+import EventListItem from "./components/EventListItem";
 
 
 export default function Home() {

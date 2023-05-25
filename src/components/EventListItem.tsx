@@ -1,4 +1,4 @@
-import { CalendarEvent } from "../../business-planner-shared/src/CalendarEvent";
+import { CalendarEvent } from "../../../business-planner-shared/src/CalendarEvent";
 
 export default function EventListItem(props: CalendarEvent) {
     const date = new Date(props.date);
