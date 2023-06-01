@@ -8,13 +8,14 @@ import Checkbox from "./Checkbox";
 interface EventPopupProps {
     events: CalendarEvent[],
     open: boolean,
+    onPopupClose: any,
 }
 
 export default function EventPopup(props: EventPopupProps) {
     return (
         <Popup contentStyle={{
             background: "#232323",
-        }} open={props.open}>
+        }} open={props.open} onClose={props.onPopupClose}>
             <ul className="popup-list">
                 {props.events.map((ev) => {
                     return (

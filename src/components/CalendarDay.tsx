@@ -19,7 +19,7 @@ export default function CalendarDay(props: DayProps) {
 	return (
 		<td key={props.key} onClick={() => setIsOpen(true)}>
 			<span className="day-text">{props.dayIndex.toString()}</span>
-			<EventPopup events={events} open={isOpen} />
+			<EventPopup events={events} open={isOpen} onPopupClose={() => setIsOpen(!isOpen)}/>
 			{events.map((el) => <span key={el.id}>{el.title}</span>)}
 		</td>
 	);
