@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { CalendarEvent } from "../../../business-planner-shared/src/CalendarEvent";
 import axios from "axios";
 import EventPopup from "./EventPopup";
-import { DayProps } from "../pages/Calendar";
+import { DayProps } from "./CalendarUI";
 
 export default function CalendarDay(props: DayProps) {
 	const [events, setEvents] = useState(new Array<CalendarEvent>);
