@@ -21,4 +21,13 @@ td:hover {
     transition: linear 100ms;
 }
 
-
+.event-text {
+    font-size: small;
+    color: white;
+    width: auto;
+    height: fit-content;
+    padding: 0px;
+    background: teal;
+    margin-top: 25px;
+    padding-left: 15px;
+}

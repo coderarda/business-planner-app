@@ -17,10 +17,10 @@ export default function CalendarDay(props: DayProps) {
 		fetchData();
 	}, []);
 	return (
-		<td key={props.key} onClick={() => setIsOpen(true)}>
+		<td key={props.key} onClick={() => (events.length != 0) ? setIsOpen(true) : setIsOpen(false)}>
 			<span className="day-text">{props.dayIndex.toString()}</span>
 			<EventPopup events={events} open={isOpen} onPopupClose={() => setIsOpen(!isOpen)}/>
-			{events.map((el) => <span key={el.id}>{el.title}</span>)}
+			{events.map((el) => <li className="event-text" key={el.id}>{el.title}</li>)}
 		</td>
 	);
 }
