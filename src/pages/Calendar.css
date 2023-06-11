@@ -27,7 +27,7 @@ td:hover {
     width: auto;
     height: fit-content;
     padding: 0px;
-    background: teal;
+    background: rgba(0, 255, 255, 0.5);
     margin-top: 25px;
     padding-left: 15px;
 }

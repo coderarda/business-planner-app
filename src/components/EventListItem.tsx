@@ -11,7 +11,7 @@ export default function EventListItem(props: CalendarEvent) {
             <br></br>
             {"Description : " + props.description}
             <br></br>
-            {"Time of plan: " + date.getHours() + ":" + date.getMinutes()}
+            {"Time of plan: " + date.getHours() + ":" + date.getMinutes().toString().padStart(2, "0")}
         </li>
     );
 }

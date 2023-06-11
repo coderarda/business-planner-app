@@ -8,7 +8,7 @@ function App() {
             <div className="navbar">
                 <ul className="nav-list">
                     <li>
-                        <NavButton path="home" title="Home"></NavButton>
+                        <NavButton path="/" title="Home"></NavButton>
                     </li>
                     <li>
                         <NavButton path="calendar" title="Plan"></NavButton>
