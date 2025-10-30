@@ -1,5 +1,6 @@
 import React, { ReactElement } from "react";
 import CalendarDay from "./CalendarDay";
+import { Container } from "@chakra-ui/react";
 
 interface MonthUIElements {
 	days: Array<ReactElement[]>,
@@ -55,9 +56,7 @@ export function CalendarUI() {
 	const dayData = renderDays();
 	return (
 		<>
-			{dayData.weeks.map((el) => {
-				return el;
-			})}
+			{dayData.weeks.map((el) => el)}
 		</>
 	);
 }

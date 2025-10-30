@@ -10,4 +10,7 @@ export default defineConfig({
       include: "./src/assets/*"
     })
   ],
+  server: {
+    watch: { usePolling: true },
+  }
 })

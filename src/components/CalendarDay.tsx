@@ -8,19 +8,21 @@ export default function CalendarDay(props: DayProps) {
 	const [events, setEvents] = useState(new Array<CalendarEvent>);
 	const [isOpen, setIsOpen] = useState(false);
 	useEffect(() => {
-		const fetchData = async () => {
+		(async () => {
 			const res = await axios.get("http://localhost:3000");
 			const data: CalendarEvent = res.data;
 			if (new Date(data.date).getDate() == props.dayIndex && !events.includes(data))
 				setEvents([...events, data]);
-		};
-		fetchData();
+		})();
 	}, []);
+    
 	return (
 		<td key={props.key} onClick={() => (events.length != 0) ? setIsOpen(true) : setIsOpen(false)}>
 			<span className="day-text">{props.dayIndex.toString()}</span>
 			<EventPopup events={events} open={isOpen} onPopupClose={() => setIsOpen(!isOpen)}/>
-			{events.map((el) => <li className="event-text" key={el.id}>{el.title}</li>)}
+            <ul className="event-list-small">
+                {events.map((el) => <li className="event-text" key={el.id}>{el.title}</li>)}
+            </ul>
 		</td>
 	);
 }

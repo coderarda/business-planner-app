@@ -1,24 +1,33 @@
 .calendar-table{
     border-collapse: collapse;
+    margin: 10px;
 }
 
 .day-text {
     padding: 5px;
-    position: absolute;
+    position: relative;
 }
 
 td {
     color: white;
-    border-right: 1px solid aqua;
-    border-bottom: 1px solid aqua;
+    border-right: 1px solid gray;
+    border-bottom: 1px solid gray;
     vertical-align: text-top;
     height: 120px;
     width: 120px;
 }
 
 td:hover {
-    background: rgba(0, 255, 255, 0.7);
+    background: gray;
     transition: linear 100ms;
+}
+
+table:first-child {
+    border-top: 1px solid gray;
+}
+
+tr {
+    border-left: 1px solid gray;
 }
 
 .event-text {
@@ -28,6 +37,12 @@ td:hover {
     height: fit-content;
     padding: 0px;
     background: rgba(0, 255, 255, 0.5);
-    margin-top: 25px;
     padding-left: 15px;
+}
+
+.event-list-small {
+    position: relative;
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
 }

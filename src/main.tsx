@@ -1,10 +1,12 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { ChakraProvider, ColorModeProvider, ColorModeScript, extendTheme, ThemeConfig } from "@chakra-ui/react";
 import App from "./pages/App";
 import Calendar from "./pages/Calendar";
 import Home from "./pages/Home";
 import "./index.css";
+import '@fontsource-variable/mulish';
+import ReactDOM from "react-dom";
 
 const router = createBrowserRouter([
     {
@@ -17,14 +19,22 @@ const router = createBrowserRouter([
 			},
 			{
 				path:"calendar",
-				element:<Calendar />
+				element:<Calendar />    
 			}
 		],
     },
 ]);
 
+const themeCfg: ThemeConfig = {
+    initialColorMode: "dark",
+}
+
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
     <React.StrictMode>
-		<RouterProvider router={router} />
+        <ChakraProvider theme={themeCfg}>
+            <ColorModeProvider>
+		        <RouterProvider router={router} />
+            </ColorModeProvider>
+        </ChakraProvider>
     </React.StrictMode>
 );

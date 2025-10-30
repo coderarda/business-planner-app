@@ -1,25 +1,37 @@
-span, h1, h3 {
-    display: block;
-    color: white;
-    position: relative;
-    padding: 20px;
+@media (prefers-color-scheme: dark) {
+    .event-list {
+        background: #64646466;
+    }
+
+    .event-item {
+        border: 2px solid aqua;
+        background: rgba(0, 255, 255, 0.5);
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    .event-list {
+        background: #f9f9f966;
+    }
+
+    .event-item {
+        border: 2px solid #141414;
+        background: rgba(20, 20, 20, 0.5);
+    }
 }
 
 .event-list {
-    background: rgba(100, 100, 100, 0.4);
     width: 40%;
     height: auto;
     padding: 15px;
     margin: 30px;
     border-radius: 10px;
+    list-style: none;
 }
 
 .event-item {
-    border:2px solid aqua;
     border-radius: 5px;
-    background: rgba(0, 255, 255, 0.5);
     width: fit-content;
     padding: 8px;
     list-style-type: none;
 }
-

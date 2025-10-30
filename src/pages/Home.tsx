@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import "./Home.css";
 import { Axios } from "axios";
 import { CalendarEvent } from "../../../business-planner-shared/src/CalendarEvent";
 import EventListItem from "../components/EventListItem";
+import { Heading } from "@chakra-ui/react";
 
 
 export default function Home() {
@@ -20,9 +21,8 @@ export default function Home() {
     }, []);
     return (
         <>
-            <h1>Welcome!</h1>
             <div className="event-list">
-                <h3>Tasks for today: </h3>
+                <Heading>Welcome!</Heading>
                 <ul>
                     {events.map((it) => {
                         const newItem = JSON.parse(String(it));

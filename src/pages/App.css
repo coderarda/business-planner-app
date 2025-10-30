@@ -3,29 +3,22 @@
     position: relative;
 }
 
-.navbar {
-    position: relative;
-    width: 100vw;
-    height: fit-content;
-    display: block;
-    background: rgb(19, 53, 190);
+@media (prefers-color-scheme: dark) {
+    .navbar {
+        background: #313131;
+        color: white;
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    .navbar {
+        background: gray;
+        color: black;
+    }
 }
 
 .navbar-button {
     width: fit-content;
-    justify-content: center;
-    height: 100%;
-}
-
-.nav-link {
-    font-family: "Open Sans", sans-serif;
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    padding: 10px;
-	margin-right: 10px;
-    display: inline-flex;
-    height: 80%;
 }
 
 .nav-list {
@@ -37,7 +30,7 @@
 }
 
 .nav-link:hover {
-    border-radius: 7px;
-    background: rgb(43, 127, 253);
+    background-color: #65C3BB;
+    color: black;
     transition: linear 200ms;
 }
