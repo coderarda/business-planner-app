@@ -3,7 +3,7 @@ import { Popup } from "reactjs-popup";
 import "reactjs-popup/dist/index.css";
 import { CalendarEvent } from "../../../business-planner-shared/src/CalendarEvent";
 import "./EventPopup.css";
-import Checkbox from "./Checkbox";
+import { Checkbox, ListItem, UnorderedList } from "@chakra-ui/react";
 
 interface EventPopupProps {
     events: CalendarEvent[],
@@ -16,15 +16,15 @@ export default function EventPopup(props: EventPopupProps) {
         <Popup contentStyle={{
             background: "#232323",
         }} open={props.open} onClose={props.onPopupClose}>
-            <ul className="popup-list">
+            <UnorderedList className="popup-list">
                 {props.events.map((ev) => {
                     return (
-                        <li className="popup-list-item">
-                            <Checkbox label={ev.title} />
-                        </li>
+                        <ListItem className="popup-list-item">
+                            <Checkbox>{ev.title}</Checkbox>
+                        </ListItem>
                     );
                 })}
-            </ul>
+            </UnorderedList>
         </Popup>
     );
 }
